@@ -1,0 +1,58 @@
+public class Main {
+  public static void main(String[] args) {
+    String text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    
+    String bestCase = "A"; // Best-case scenario (could be the first character of the text)
+
+    // Initialize startTime for best-case scenario
+    long startTime = System.nanoTime();
+    int index = match(text, bestCase);
+    // Initialize endTime for best-case scenario
+    long endTime = System.nanoTime();
+    // Calculate elapsedTime for best-case scenario
+    long elapsedTime = endTime - startTime;
+    
+    if (index >= 0)
+      System.out.println("best-case input matched at index " + index);
+    else
+      System.out.println("best-case input unmatched");
+    System.out.println("Best-case elapsed time: " + elapsedTime + " nanoseconds");
+
+    String worstCase = "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"; // Worst-case scenario (could be a long pattern that doesn't match)
+
+    // Initialize startTime for worst-case scenario
+    startTime = System.nanoTime();
+    index = match(text, worstCase);
+    // Initialize endTime for worst-case scenario
+    endTime = System.nanoTime();
+    // Calculate elapsedTime for worst-case scenario
+    elapsedTime = endTime - startTime;
+    
+    if (index >= 0)
+      System.out.println("worst-case input matched at index " + index);
+    else
+      System.out.println("worst-case input unmatched");
+    System.out.println("Worst-case elapsed time: " + elapsedTime + " nanoseconds");
+  }
+
+  // Return the index of the first match. -1 otherwise.
+  public static int match(String text, String pattern) {
+    for (int i = 0; i < text.length() - pattern.length() + 1; i++) {
+      if (isMatched(i, text, pattern))
+        return i;
+    }
+
+    return -1;
+  }
+	
+  // Test if pattern matches text starting at index i
+  private static boolean isMatched(int i, String text, String pattern) {
+    for (int k = 0; k < pattern.length(); k++) {
+      if (pattern.charAt(k) != text.charAt(i + k)) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
+}
