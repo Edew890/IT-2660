@@ -10,7 +10,7 @@ public class Main {
         Lab4.outputList(integerList);
 
         System.out.println("\n\nBubble sort results ----------------------------------------------");
-        ArrayList<Integer> bubbleSortedList = new ArrayList<>(integerList); // Create a copy
+        ArrayList<Integer> bubbleSortedList = new ArrayList<>(integerList); 
         long bubbleStartTime = System.nanoTime();
         bubbleSortedList = Lab4.bubbleSort(bubbleSortedList);
         long bubbleEndTime = System.nanoTime();
@@ -20,7 +20,7 @@ public class Main {
         System.out.println("\nBubble sort execution time: " + bubbleExecutionTime + " nanoseconds");
 
         System.out.println("\n\nInsertion sort results -------------------------------------------");
-        ArrayList<Integer> insertionSortedList = new ArrayList<>(integerList); // Create a copy
+        ArrayList<Integer> insertionSortedList = new ArrayList<>(integerList); 
         long insertionStartTime = System.nanoTime();
         insertionSortedList = Lab4.insertionSort(insertionSortedList);
         long insertionEndTime = System.nanoTime();
@@ -34,7 +34,7 @@ public class Main {
 class Lab4 {
     public static ArrayList<Integer> insertionSort(ArrayList<Integer> integerList) {
         // Step 1 - Implement insertion sort algorithm here
-        ArrayList<Integer> sortedList = new ArrayList<>(integerList); // Create a copy to avoid modifying the original
+        ArrayList<Integer> sortedList = new ArrayList<>(integerList); 
 
         for (int i = 1; i < sortedList.size(); i++) {
             int key = sortedList.get(i);
@@ -51,12 +51,11 @@ class Lab4 {
 
     public static ArrayList<Integer> bubbleSort(ArrayList<Integer> integerList) {
         // Step 2 - Implement the bubble sort algorithm here
-        ArrayList<Integer> sortedList = new ArrayList<>(integerList); // Create a copy to avoid modifying the original
+        ArrayList<Integer> sortedList = new ArrayList<>(integerList); 
         int n = sortedList.size();
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (sortedList.get(j) > sortedList.get(j + 1)) {
-                    // swap temp and arr[i]
                     int temp = sortedList.get(j);
                     sortedList.set(j, sortedList.get(j + 1));
                     sortedList.set(j + 1, temp);
