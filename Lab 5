@@ -41,3 +41,4 @@ System.out.println("Search 37: " + lab5Tree.search(37));
   }
 }
 //this is the only file I changed the other "BST.java" and "Tree.java" remain the same
+//if you need me to upload the other files as well I can just let me know :)
